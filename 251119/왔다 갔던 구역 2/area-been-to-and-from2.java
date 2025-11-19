@@ -10,8 +10,9 @@ public class Main {
         for (int i = 0; i < N; i++) {
             int x = sc.nextInt();
             char dir = sc.next().charAt(0);
+
             // Please write your code here.
-            for (int j = 0; j < x; x--) {
+            while (x-- > 0) {
                 if (dir == 'L') {
                     curr -= 1;
                     result[curr] += 1;
