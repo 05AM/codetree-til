@@ -13,13 +13,9 @@ public class Main {
 
             // Please write your code here.
             for (int j = 0; j < x; j++) {
-                if (dir == 'L') {
-                    curr -= 1;
-                    result[curr] += 1;
-                } else if (dir == 'R') {
-                    curr += 1;
-                    result[curr] += 1;
-                }
+                int prev = curr;
+                curr += (dir == 'R' ? 1 : -1);
+                result[Math.min(prev, curr)]++;
             }
         }
 
