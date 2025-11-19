@@ -12,7 +12,7 @@ public class Main {
             char dir = sc.next().charAt(0);
 
             // Please write your code here.
-            while (x-- > 0) {
+            for (int j = 0; j < x; j++) {
                 if (dir == 'L') {
                     curr -= 1;
                     result[curr] += 1;
