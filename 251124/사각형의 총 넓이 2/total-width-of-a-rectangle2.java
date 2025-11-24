@@ -21,8 +21,8 @@ public class Main {
         // Please write your code here.
         int[][] board = new int[OFFSET * 2][OFFSET * 2];
         for (int i = 0; i < n; i++) {
-            for (int r = x1[i]; r < x2[i]; r++) {
-                for (int c = y1[i]; c < y2[i]; c++) {
+            for (int r = x1[i] + OFFSET; r < x2[i] + OFFSET; r++) {
+                for (int c = y1[i] + OFFSET; c < y2[i] + OFFSET; c++) {
                     board[r][c] = 1;
                 }
             }
