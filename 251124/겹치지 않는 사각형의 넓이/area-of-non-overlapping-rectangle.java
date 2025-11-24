@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Main {
 
-    private static final OFFSET = 1000;
+    private static final int OFFSET = 1000;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
