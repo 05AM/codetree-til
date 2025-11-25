@@ -16,7 +16,7 @@ public class Main {
             int x2 = sc.nextInt() + OFFSET;
             int y2 = sc.nextInt() + OFFSET;
 
-            if (i == 0) continue;
+            int value = i % 2 == 0 ? 1 : 2;
 
             for (int x = x1; x < x2; x++) {
                 for (int y = y1; y < y2; y++) {
@@ -28,7 +28,7 @@ public class Main {
         int sum = 0;
         for (int x = 0; x < MAX_SIDE; x++) {
             for (int y = 0; y < MAX_SIDE; y++) {
-                if (board[x][y] == 1) {
+                if (board[x][y] == 2) {
                     sum++;
                 }
             }
