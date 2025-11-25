@@ -46,7 +46,11 @@ public class Main {
             }
         }
 
-        int result = (maxX - minX + 1) * (maxY - minY + 1);
+        int result = 0;
+        if (minX != OFFSET * 2 && minY != OFFSET * 2) {
+            result = (maxX - minX + 1) * (maxY - minY + 1);
+        }
+        
         System.out.println(result);
     }
 }
