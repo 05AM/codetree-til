@@ -41,13 +41,16 @@ public class Main {
             }
         }
 
+        int result = -1;
         for (int i = 1; i < OFFSET; i++) {
             if (a[i] == OFFSET) break;
 
             if (a[i] == b[i]) {
-                System.out.println(i + 1);
+                result = i + 1;
                 break;
             }
         }
+
+        System.out.println(result);
     }
 }
