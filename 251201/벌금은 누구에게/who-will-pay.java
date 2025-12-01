@@ -18,6 +18,7 @@ public class Main {
         
             if (result[id] == k) {
                 first = id;
+                break;
             }
         }
 
