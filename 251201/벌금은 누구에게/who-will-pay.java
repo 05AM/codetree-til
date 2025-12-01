@@ -16,7 +16,7 @@ public class Main {
         for (int id : penalizedPerson) {
             result[id]++;
         
-            if (result[id] == 3) {
+            if (result[id] == k) {
                 first = id;
             }
         }
