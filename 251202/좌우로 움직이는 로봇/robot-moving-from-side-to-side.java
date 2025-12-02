@@ -4,14 +4,15 @@ public class Main {
 
     private static final int OFFSET = 100000;
     private static final int LIMIT = OFFSET * 2;
+    private static final int SIZE = OFFSET * 2 + 1000;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
         
-        int[] a = new int[LIMIT + 1];
-        Arrays.fill(a, LIMIT + 1);
+        int[] a = new int[SIZE];
+        Arrays.fill(a, SIZE);
 
         a[0] = 0;
         int aTime = 1;
@@ -28,8 +29,8 @@ public class Main {
             }
         }
         
-        int[] b = new int[LIMIT + 1];
-        Arrays.fill(b, LIMIT + 1);
+        int[] b = new int[SIZE];
+        Arrays.fill(b, SIZE);
 
         b[0] = 0;
         int bTime = 1;
@@ -51,13 +52,13 @@ public class Main {
         // 현재 a와 b의 인덱스 값
         aLoc = 0;
         bLoc = 0;
-        for (int i = 1; i <= LIMIT; i++) {
-            if (a[i] == LIMIT + 1 && b[i] == LIMIT + 1) {
+        for (int i = 1; i <= SIZE; i++) {
+            if (a[i] == SIZE && b[i] == SIZE) {
                 break;
             }
 
-            aLoc = a[i] != LIMIT + 1 ? i : aLoc;
-            bLoc = b[i] != LIMIT + 1 ? i : bLoc;
+            aLoc = a[i] != SIZE ? i : aLoc;
+            bLoc = b[i] != SIZE ? i : bLoc;
 
             // System.out.println("i: " + i + ", a: " + a[aLoc] + ", b: " + b[bLoc]);
 
