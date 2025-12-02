@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Main {
 
-    private static final int OFFSET = 50000;
+    private static final int OFFSET = 100000;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -27,7 +27,7 @@ public class Main {
             }
         }
         
-        int[] b = new int[OFFSET * 2];
+        int[] b = new int[OFFSET + 1];
         Arrays.fill(b, OFFSET);
 
         b[0] = 0;
