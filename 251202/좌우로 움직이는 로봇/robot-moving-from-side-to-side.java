@@ -2,14 +2,14 @@ import java.util.*;
 
 public class Main {
 
-    private static final int OFFSET = 150000;
+    private static final int OFFSET = 100000;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
         
-        int[] a = new int[OFFSET + 1];
+        int[] a = new int[2*OFFSET + 1];
         Arrays.fill(a, OFFSET);
 
         a[0] = 0;
@@ -27,7 +27,7 @@ public class Main {
             }
         }
         
-        int[] b = new int[OFFSET + 1];
+        int[] b = new int[2*OFFSET + 1];
         Arrays.fill(b, OFFSET);
 
         b[0] = 0;
