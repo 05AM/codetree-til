@@ -63,10 +63,18 @@ public class Main {
             // System.out.println("i: " + i + ", a: " + a[aLoc] + ", b: " + b[bLoc]);
 
             if (a[aLoc] == b[bLoc]) {
-                if (aLoc != i || bLoc != i) {
-                    result++;
-                } else if (a[aLoc - 1] != b[bLoc - 1]) {
-                    result++;
+                if (aLoc == i && bLoc == i) {
+                    if (a[aLoc - 1] != b[bLoc - 1]) {
+                        result++;
+                    }
+                } else if (aLoc == i) {
+                    if (a[aLoc] != a[aLoc - 1]) {
+                        result++;
+                    }
+                } else if (bLoc == i) {
+                    if (b[bLoc] != b[bLoc - 1]) {
+                        result++;
+                    }
                 }
             }
         }
