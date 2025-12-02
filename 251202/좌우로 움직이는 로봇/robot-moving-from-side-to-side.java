@@ -3,14 +3,15 @@ import java.util.*;
 public class Main {
 
     private static final int OFFSET = 100000;
+    private static final int LIMIT = OFFSET * 2;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
         
-        int[] a = new int[2*OFFSET + 1];
-        Arrays.fill(a, OFFSET);
+        int[] a = new int[LIMIT + 1];
+        Arrays.fill(a, LIMIT + 1);
 
         a[0] = 0;
         int aTime = 1;
@@ -27,8 +28,8 @@ public class Main {
             }
         }
         
-        int[] b = new int[2*OFFSET + 1];
-        Arrays.fill(b, OFFSET);
+        int[] b = new int[LIMIT + 1];
+        Arrays.fill(b, LIMIT + 1);
 
         b[0] = 0;
         int bTime = 1;
@@ -44,21 +45,19 @@ public class Main {
                 b[bTime++] = bLoc;
             }
         }
-        
+
         int result = 0;
 
         // 현재 a와 b의 인덱스 값
         aLoc = 0;
         bLoc = 0;
-        for (int i = 1; i <= OFFSET; i++) {
-            if (a[i] == OFFSET && b[i] == OFFSET) {
+        for (int i = 1; i <= LIMIT; i++) {
+            if (a[i] == LIMIT + 1 && b[i] == LIMIT + 1) {
                 break;
             }
 
-            int aCurr = a[i] != OFFSET ? i : aLoc;
-            int bCurr = b[i] != OFFSET ? i : bLoc;
-            aLoc = aCurr;
-            bLoc = bCurr;
+            aLoc = a[i] != LIMIT + 1 ? i : aLoc;
+            bLoc = b[i] != LIMIT + 1 ? i : bLoc;
 
             // System.out.println("i: " + i + ", a: " + a[aLoc] + ", b: " + b[bLoc]);
 
@@ -66,14 +65,17 @@ public class Main {
                 if (aLoc == i && bLoc == i) {
                     if (a[aLoc - 1] != b[bLoc - 1]) {
                         result++;
+                        // System.out.println("checked1");
                     }
                 } else if (aLoc == i) {
                     if (a[aLoc] != a[aLoc - 1]) {
                         result++;
+                        // System.out.println("checked2");
                     }
                 } else if (bLoc == i) {
                     if (b[bLoc] != b[bLoc - 1]) {
                         result++;
+                        // System.out.println("checked3");
                     }
                 }
             }
