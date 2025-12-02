@@ -46,6 +46,7 @@ public class Main {
         }
         
         int result = 0;
+
         // 현재 a와 b의 인덱스 값
         aLoc = 0;
         bLoc = 0;
@@ -59,12 +60,13 @@ public class Main {
             aLoc = aCurr;
             bLoc = bCurr;
 
-            // System.out.println("i: " + i + ", a: " + a[i] + ", b: " + b[i] + " " + aLoc + " " + bLoc);
+            // System.out.println("i: " + i + ", a: " + a[aLoc] + ", b: " + b[bLoc]);
 
             if (a[aLoc] == b[bLoc]) {
-                if (a[aLoc - 1] != b[bLoc - 1]) {
+                if (aLoc != i || bLoc != i) {
                     result++;
-                    // System.out.println("i: " + i + ", a: " + a[i] + ", b: " + b[i] + " " + aLoc + " " + bLoc);
+                } else if (a[aLoc - 1] != b[bLoc - 1]) {
+                    result++;
                 }
             }
         }
