@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -45,22 +45,32 @@ public class Main {
         }
 
         int result = 0;
+        Set<Character> lastFirsts = new HashSet<>();
         for (int i = 1; i <= totalTime; i++) {
-            // 내가 찾아야되는 상태
-            // 1. a, b의 순서가 역전
-            // 2. a, b가 같아짐
+            Set<Character> currFirsts = new HashSet<>();
 
-            // System.out.println("i: " + i + " - a: " + LocByTimeA[i] + ", b: " + LocByTimeB[i]);
+            if (LocByTimeA[i] == LocByTimeB[i]) {
+                currFirsts.add('A');
+                currFirsts.add('B');
+            } else {
+                currFirsts.add(LocByTimeA[i] > LocByTimeB[i] ? 'A' : 'B');
+            }
 
-            if (LocByTimeA[i - 1] < LocByTimeB[i - 1] && LocByTimeA[i] >= LocByTimeB[i]) {
-                result++;
-            } else if (LocByTimeB[i - 1] < LocByTimeA[i -1] && LocByTimeB[i] >= LocByTimeA[i]) {
-                result++;
-            } else if (LocByTimeA[i - 1] != LocByTimeB[i - 1] && LocByTimeA[i] == LocByTimeB[i]) {
-                result++;
-            } else if (LocByTimeA[i - 1] == LocByTimeB[i - 1] && LocByTimeA[i] != LocByTimeB[i]) {
+            if (!currFirsts.equals(lastFirsts)) {
                 result++;
             }
+            lastFirsts = currFirsts;
+
+
+            // if (LocByTimeA[i - 1] < LocByTimeB[i - 1] && LocByTimeA[i] >= LocByTimeB[i]) {
+            //     result++;
+            // } else if (LocByTimeB[i - 1] < LocByTimeA[i -1] && LocByTimeB[i] >= LocByTimeA[i]) {
+            //     result++;
+            // } else if (LocByTimeA[i - 1] != LocByTimeB[i - 1] && LocByTimeA[i] == LocByTimeB[i]) {
+            //     result++;
+            // } else if (LocByTimeA[i - 1] == LocByTimeB[i - 1] && LocByTimeA[i] != LocByTimeB[i]) {
+            //     result++;
+            // }
         }
 
         System.out.println(result);
