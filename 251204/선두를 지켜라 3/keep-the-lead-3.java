@@ -45,32 +45,24 @@ public class Main {
         }
 
         int result = 0;
-        Set<Character> lastFirsts = new HashSet<>();
+        int lastState = 0;  // 동률: 0, A: 1, B: -1
+
         for (int i = 1; i <= totalTime; i++) {
-            Set<Character> currFirsts = new HashSet<>();
+            int currentState;
 
             if (LocByTimeA[i] == LocByTimeB[i]) {
-                currFirsts.add('A');
-                currFirsts.add('B');
+                currentState = 0;
+            } else if (LocByTimeA[i] > LocByTimeB[i]) {
+                currentState = 1;
             } else {
-                currFirsts.add(LocByTimeA[i] > LocByTimeB[i] ? 'A' : 'B');
+                currentState = -1;
             }
 
-            if (!currFirsts.equals(lastFirsts)) {
+            if (lastState != currentState) {
                 result++;
             }
-            lastFirsts = currFirsts;
 
-
-            // if (LocByTimeA[i - 1] < LocByTimeB[i - 1] && LocByTimeA[i] >= LocByTimeB[i]) {
-            //     result++;
-            // } else if (LocByTimeB[i - 1] < LocByTimeA[i -1] && LocByTimeB[i] >= LocByTimeA[i]) {
-            //     result++;
-            // } else if (LocByTimeA[i - 1] != LocByTimeB[i - 1] && LocByTimeA[i] == LocByTimeB[i]) {
-            //     result++;
-            // } else if (LocByTimeA[i - 1] == LocByTimeB[i - 1] && LocByTimeA[i] != LocByTimeB[i]) {
-            //     result++;
-            // }
+            lastState = currentState;
         }
 
         System.out.println(result);
