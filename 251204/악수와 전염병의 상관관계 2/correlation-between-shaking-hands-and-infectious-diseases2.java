@@ -33,12 +33,6 @@ public class Main {
 
                 afterInfected[y] += 1;
                 afterInfected[x] += 1;
-            } 
-
-            for (int i = 1; i <= N; i++) {
-                if (i != x && i != y && isInfected[i]) {
-                    afterInfected[i] += 1;
-                }
             }
         }
 
