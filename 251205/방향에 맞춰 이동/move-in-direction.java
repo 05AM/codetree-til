@@ -15,24 +15,18 @@ public class Main {
             char direction = sc.next().charAt(0);
             int distance = sc.nextInt();
 
-            switch (direction) {
-                case 'W': 
-                    x += dx[0] * distance;
-                    y += dy[0] * distance;
-                    break;
-                case 'S': 
-                    x += dx[1] * distance;
-                    y += dy[1] * distance;
-                    break;
-                case 'N': 
-                    x += dx[2] * distance;
-                    y += dy[2] * distance;
-                    break;
-                case 'E': 
-                    x += dx[3] * distance;
-                    y += dy[3] * distance;
-                    break;
-            }
+            int dirNum;
+            if (direction == 'W')
+                dirNum = 0;
+            else if (direction == 'S')
+                dirNum = 1;
+            else if (direction == 'N')
+                dirNum = 2;
+            else
+                dirNum = 3;
+
+            x += dx[dirNum] * distance;
+            y += dy[dirNum] * distance;
         }
 
         System.out.println(x + " " + y);
