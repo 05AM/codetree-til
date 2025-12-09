@@ -16,11 +16,7 @@ public class Main {
         String D = sc.next();
 
         int dirNum = getDirNum(D);
-        while (T-- > 1) {
-            // System.out.println("dirNum: " + dirNum);
-            // System.out.println("R: " + R);
-            // System.out.println("C: " + C);
-
+        while (T-- > 0) {
             int nextR = R + dr[dirNum];
             int nextC = C + dc[dirNum];
 
@@ -29,8 +25,6 @@ public class Main {
                 C = nextC;
             } else {
                 dirNum = 3 - dirNum;
-                R += dr[dirNum];
-                C += dc[dirNum];
             }
         }
 
