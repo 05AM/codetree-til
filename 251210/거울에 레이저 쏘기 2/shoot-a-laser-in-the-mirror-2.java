@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static final int[] dr = new int[] { -1, 0, 1, 0 };
-    public static final int[] dc = new int[] { 0, 1, 0, -1 };
+    public static final int[] dr = new int[] { 1, 0, -1, 0 };
+    public static final int[] dc = new int[] { 0, -1, 0, 1 };
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -15,27 +15,27 @@ public class Main {
                 grid[i][j] = s.charAt(j);
             }
         }
-        int startNum = sc.nextInt();
+        int startNum = sc.nextInt() - 1;
 
         // startNum이 어느 방향인지 구하기
         int dirNum;
         int r, c;
-        if (startNum / 4 == 0) {
-            dirNum = 2;
-            r = 0;
-            c = startNum % 4 - 1;
-        } else if (startNum / 4 == 1) {
-            dirNum = 3;
-            r = startNum % 4 - 1;
-            c = n - 1;
-        } else if (startNum / 4 == 2) {
+        if (startNum / n == 0) {
             dirNum = 0;
-            r = n - 1;
-            c = startNum % 4 - 1;
-        } else {
+            r = 0;
+            c = startNum % n;
+        } else if (startNum / n == 1) {
             dirNum = 1;
-            r = startNum % 4 - 1;
+            r = startNum % n;
             c = n - 1;
+        } else if (startNum / n == 2) {
+            dirNum = 2;
+            r = n - 1;
+            c = startNum % n;
+        } else {
+            dirNum = 3;
+            r = startNum % n;
+            c = 0;
         }
 
         // 어느 방향에서 들어왔는지, 거울이 무슨 방향인지 정보가 필요
@@ -61,13 +61,13 @@ public class Main {
 
     public static int getDirNum(char mirror, int currDirNum) {
         if (mirror == '/') {
-            if (currDirNum == 0 || currDirNum == 1) {
+            if (currDirNum == 0 || currDirNum == 2) {
                 return (currDirNum + 1) % 4;
             } else {
                 return (currDirNum - 1 + 4) % 4;
             }
         } else {
-            if (currDirNum == 1 || currDirNum == 2) {
+            if (currDirNum == 1 || currDirNum == 3) {
                 return (currDirNum + 1) % 4;
             } else {
                 return (currDirNum - 1 + 4) % 4;
