@@ -61,17 +61,9 @@ public class Main {
 
     public static int getDirNum(char mirror, int currDirNum) {
         if (mirror == '/') {
-            if (currDirNum == 0 || currDirNum == 2) {
-                return (currDirNum + 1) % 4;
-            } else {
-                return (currDirNum - 1 + 4) % 4;
-            }
+            return currDirNum ^ 1;
         } else {
-            if (currDirNum == 1 || currDirNum == 3) {
-                return (currDirNum + 1) % 4;
-            } else {
-                return (currDirNum - 1 + 4) % 4;
-            }
+            return 3 - currDirNum;
         }
     }
 }
