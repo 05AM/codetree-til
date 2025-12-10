@@ -31,10 +31,10 @@ public class Main {
         } else if (startNum / n == 2) {
             dirNum = 2;
             r = n - 1;
-            c = startNum % n;
+            c = n - (startNum % n);
         } else {
             dirNum = 3;
-            r = startNum % n;
+            r = n - (startNum % n);
             c = 0;
         }
 
