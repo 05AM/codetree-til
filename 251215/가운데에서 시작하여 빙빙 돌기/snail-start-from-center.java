@@ -23,7 +23,7 @@ public class Main {
             int nr = row + dr[nextDirNum];
             int nc = col + dc[nextDirNum];
 
-            if (grid[nr][nc] == 0) {
+            if (nr < 0 || nc >= n || grid[nr][nc] == 0) {
                 dirNum = nextDirNum;
                 row = nr;
                 col = nc;
