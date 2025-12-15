@@ -17,7 +17,7 @@ public class Main {
         int dirNum = 0;
 
         for (int i = 0; i < n * m; i++) {
-            grid[row][col] = (char) (ch + i);
+            grid[row][col] = (char) (ch + i % 26);
 
             int nr = row + dr[dirNum];
             int nc = col + dc[dirNum];
