@@ -5,7 +5,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String a = sc.next();
 
-        int max = Integer.MIN_VALUE;
+        int max = Integer.parseInt(a, 2);
         for (int i = 0; i < a.length(); i++) {
             StringBuilder temp = new StringBuilder(a);
 
@@ -13,10 +13,6 @@ public class Main {
                 temp.setCharAt(i, '1');
                 max = Math.max(max, Integer.parseInt(temp.toString(), 2));
             }
-        }
-
-        if (max == Integer.MIN_VALUE) {
-            max = 0;
         }
 
         System.out.println(max);
