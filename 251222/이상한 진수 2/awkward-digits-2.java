@@ -15,6 +15,10 @@ public class Main {
             }
         }
 
+        if (max == Integer.MIN_VALUE) {
+            max = 0;
+        }
+
         System.out.println(max);
     }
 }
