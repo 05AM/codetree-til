@@ -22,9 +22,12 @@ public class Main {
         for (int r = 0; r < n; r++) {
             for (int c = 0; c < n; c++) {
                 int curr = arr[r][c];
+                if (curr == 0) {
+                    continue;
+                }
+
                 // 가로, 세로, 대각선으로 5개 있는지 확인
                 // 가로, 세로: 오른쪽 / 아래
-
                 for (int i = 1; i <= 4; i++) {
                     int nr = r + i;
                     if (!inRange(nr, c)) {
@@ -36,12 +39,12 @@ public class Main {
                         midC = c;
                     }
 
-                    if (arr[nr][c] == curr) {
-                        if (i == 4) {
-                            isDetermined = true;
-                        }
+                    if (arr[nr][c] != curr) {
+                        break;
+                    }
 
-                        continue;
+                    if (i == 4) {
+                        isDetermined = true;
                     }
                 }
 
@@ -57,18 +60,15 @@ public class Main {
                         midC = nc;
                     }
 
-                    if (arr[r][nc] == curr) {
-                        if (i == 4) {
-                            isDetermined = true;
-                        }
-
-                        continue;
+                    if (arr[r][nc] != curr) {
+                        break;
                     }
+                    
                 }
 
                 // 대각선: 아래 왼쪽 / 아래 오른쪽
                 for (int i = 1; i <= 4; i++) {
-                    int nr = r - i;
+                    int nr = r + i;
                     int nc = c - i;
 
                     if (!inRange(nr, nc)) {
@@ -84,7 +84,6 @@ public class Main {
                         if (i == 4) {
                             isDetermined = true;
                         }
-
                         continue;
                     }
                 }   
@@ -106,13 +105,12 @@ public class Main {
                         if (i == 4) {
                             isDetermined = true;
                         }
-
                         continue;
                     }
                 }   
 
                 if (isDetermined) {
-                    winner = curr == 1 ? 1 : 2;
+                    winner = curr;
                     break;
                 }
             }
