@@ -8,7 +8,12 @@ public class Main {
         int max = 0;
         for (int i = 0; i < a.length(); i++) {
             StringBuilder temp = new StringBuilder(a);
-            temp.setCharAt(i, '1');
+
+            if (temp.charAt(i) == '1') {
+                temp.setCharAt(i, '0');
+            } else {
+                temp.setCharAt(i, '1');
+            }
             max = Math.max(max, Integer.parseInt(temp.toString(), 2));
         }
 
