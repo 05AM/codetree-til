@@ -35,8 +35,8 @@ public class Main {
                     }
 
                     if (i == 2) {
-                        midR = nr;
-                        midC = c;
+                        midR = nr + 1;
+                        midC = c + 1;
                     }
 
                     if (arr[nr][c] != curr) {
@@ -56,14 +56,17 @@ public class Main {
                     }
 
                     if (i == 2) {
-                        midR = r;
-                        midC = nc;
+                        midR = r + 1;
+                        midC = nc + 1;
                     }
 
                     if (arr[r][nc] != curr) {
                         break;
                     }
-                    
+
+                    if (i == 4) {
+                        isDetermined = true;
+                    }
                 }
 
                 // 대각선: 아래 왼쪽 / 아래 오른쪽
@@ -76,15 +79,16 @@ public class Main {
                     }
 
                     if (i == 2) {
-                        midR = nr;
-                        midC = nc;
+                        midR = nr + 1;
+                        midC = nc + 1;
                     }
 
-                    if (arr[nr][nc] == curr) {
-                        if (i == 4) {
-                            isDetermined = true;
-                        }
-                        continue;
+                    if (arr[nr][nc] != curr) {
+                        break;
+                    }
+
+                    if (i == 4) {
+                        isDetermined = true;
                     }
                 }   
 
@@ -97,15 +101,16 @@ public class Main {
                     }
 
                     if (i == 2) {
-                        midR = nr;
-                        midC = nc;
+                        midR = nr + 1;
+                        midC = nc + 1;
                     }
 
-                    if (arr[nr][nc] == curr) {
-                        if (i == 4) {
-                            isDetermined = true;
-                        }
-                        continue;
+                    if (arr[nr][nc] != curr) {
+                        break;
+                    }
+
+                    if (i == 4) {
+                        isDetermined = true;
                     }
                 }   
 
